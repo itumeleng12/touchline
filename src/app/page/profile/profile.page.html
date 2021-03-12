@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-toolbar color = "tertiary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="folder/welcome"></ion-back-button>
+    </ion-buttons>
+    <ion-title>MY PROFILE</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+<ion-grid>
+  <ion-card>
+    <ion-item style="text-align: center">
+      <div style="text-align: center">
+      <ion-avatar class="avatars" >
+        <img src="../../assets/img/av.jpg">
+      </ion-avatar>
+      </div>
+</ion-item>
+  </ion-card>
+</ion-grid>
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col text-center>
+        <ion-card-header>
+          Username :
+        </ion-card-header>
+        <ion-list>
+  <ion-item>
+    {{UserUsername}}
+  </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col text-center>
+        <ion-card-header>
+          Email Address :
+        </ion-card-header>
+        <ion-list>
+  <ion-item>
+    {{UserEmail}}
+  </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col text-center>
+        <ion-card-header>
+          Mobile No :
+        </ion-card-header>
+        <ion-list>
+  <ion-item>
+    {{UserMobile}}
+  </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col text-center>
+        <ion-card-header>
+          Date Of Birth :
+        </ion-card-header>
+ <ion-list>
+  <ion-item>
+    {{UserDob}}
+  </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col text-center>
+        <ion-card-header>
+          Physical A ddress :
+        </ion-card-header>
+        <ion-list>
+  <ion-item>
+    {{address}}
+  </ion-item>
+ </ion-list>
+      </ion-col>
+    </ion-row>
+
+
+  </ion-grid>
+
+
+</ion-content>

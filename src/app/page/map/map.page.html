@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color = "tertiary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="folder/welcome"></ion-back-button>
+    </ion-buttons>
+    <ion-title>MY ADDRESS</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<h4> Enter address for delivery</h4>
+
+  <ion-searchbar (input)="search($event)" (change)="addressCheck($event)"     [value]="selectedAddress"></ion-searchbar>
+
+      <ion-item *ngFor="let address of addresses ; let i=index" (click)="onSelect(address, i)" >
+  
+       {{ address}}
+      
+        </ion-item>
+<br>
+<br>
+<br>
+        <div>
+<small> If your address does not show on the searchbar, please type it on the text box below.</small> 
+<br>
+<br>
+<ion-item>
+  <ion-textarea rows="3" cols="20" placeholder="Enter any adress here..."></ion-textarea>
+</ion-item>
+
+        </div>
+        <ion-button expand=" full" size="medium" shape ="round" class= "submit" (click)="goAddress()">Submit</ion-button>
+
+</ion-content>

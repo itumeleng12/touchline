@@ -1,0 +1,7 @@
+{
+  "name": "Touchline",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

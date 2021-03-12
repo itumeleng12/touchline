@@ -1,0 +1,140 @@
+<ion-header>
+  <ion-toolbar color = "tertiary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>REGISTER HERE</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+
+  <ion-card>
+    <ion-item style="text-align: center">
+      <div style="text-align: center">
+      <ion-avatar class="avatars" >
+        <img src="../../assets/img/av.jpg">
+      </ion-avatar>
+      </div>
+</ion-item>
+  </ion-card>
+
+
+  <form class="form" [formGroup]="validations_form" (ngSubmit)="tryRegister(validations_form.value)">
+
+    <ion-item>
+      <ion-label position="floating">Usernames</ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.name">
+        <div class="error-message"
+          *ngIf="validations_form.get('name').hasError(validation.type) && (validations_form.get('name').dirty || validations_form.get('name').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="text" formControlName="email"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.email">
+        <div class="error-message"
+          *ngIf="validations_form.get('email').hasError(validation.type) && (validations_form.get('email').dirty || validations_form.get('email').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-item lines="full">
+      <ion-label position="floating" icon="calendar">DOB</ion-label>
+      <ion-datetime (ionChange)="getDate($event)" formControlName="dob" [value]="defaultDate"></ion-datetime>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label position="floating">Address</ion-label>
+      <ion-input type="text" formControlName="address"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.address">
+        <div class="error-message"
+          *ngIf="validations_form.get('address').hasError(validation.type) && (validations_form.get('address').dirty || validations_form.get('address').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-item>
+      <ion-label position="floating" >Password</ion-label>
+      <ion-input type="password" formControlName="password" class="form-controll" required></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.password">
+        <div class="error-message"
+          *ngIf="validations_form.get('password').hasError(validation.type) && (validations_form.get('password').dirty || validations_form.get('password').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    
+    <ion-item>
+      <ion-label position="stacked">Gender</ion-label>
+      <ion-select placeholder="Select One">
+        <ion-select-option value="f">Female</ion-select-option>
+        <ion-select-option value="m">Male</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Mobile</ion-label>
+      <ion-input type="text" formControlName="mobile"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.mobile">
+        <div class="error-message"
+          *ngIf="validations_form.get('mobile').hasError(validation.type) && (validations_form.get('mobile').dirty || validations_form.get('mobile').touched)">
+          {{ validation.message }}
+        </div>
+
+      </ng-container>
+    </div>
+
+    <label class="error-message">{{errorMessage}}</label>
+    <label class="success-message">{{successMessage}}</label>
+  
+
+    <!-- Checkboxes -->
+    <ion-list lines="full">
+      <ion-list-header>
+        <ion-label icon="checkmark">Checks</ion-label>
+      </ion-list-header>
+      <ion-item>
+        <ion-label>Over 18 years?</ion-label>
+        <ion-checkbox></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>Around Pretoria?</ion-label>
+        <ion-checkbox></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>No respiratory issues?</ion-label>
+        <ion-checkbox></ion-checkbox>
+      </ion-item>
+    </ion-list>
+
+    <div class="boxContainer">
+      <div class="box">
+        <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+      </div>
+        <ion-button expand= "full" size="large" shape ="round" class= "submit" (click)="goLoginPage()">Register</ion-button>
+      <p>Already have an account? <a href="#">Login</a>.</p>
+
+    </div>
+  </form>
+</ion-content>
